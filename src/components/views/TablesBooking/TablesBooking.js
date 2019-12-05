@@ -1,14 +1,13 @@
 import React from 'react';
-import styles from './TablesBooking.scss'
+import styles from './TablesBooking.scss';
 
 class TablesBooking extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2 className={styles.component}>
-        - zawiera wszystkie informacje dotycące rezerwacji
-        - umożliwia edycję i zapisanie zmian
+      <div className={styles.component}>
+        <h2>
+          Tables Booking
         </h2>
       </div>
     );

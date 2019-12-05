@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './TablesNewBooking.scss'
+import styles from './TablesNewBooking.scss';
 
 class TablesNewBooking extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2 className={styles.component}>
-          - analogicznie do powyższej, bez początkowych informacji
+      <div className={styles.component}>
+        <h2>
+          Tables New Booking
         </h2>
       </div>
     );

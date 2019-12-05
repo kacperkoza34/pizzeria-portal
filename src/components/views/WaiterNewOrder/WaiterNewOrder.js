@@ -1,17 +1,13 @@
 import React from 'react';
-import styles from './WaiterNewOrder.scss'
+import styles from './WaiterNewOrder.scss';
 
 class WaiterNewOrder extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2 className={styles.component}>
-        - numer stolika (edytowalny)
-        - menu produktów
-        - opcje wybranego produktu
-        - zamównie (zamówienie produktu z opcjami i ceną)
-        -kwote zamówienia
+      <div className={styles.component}>
+        <h2>
+          Waitres New Order
         </h2>
       </div>
     );

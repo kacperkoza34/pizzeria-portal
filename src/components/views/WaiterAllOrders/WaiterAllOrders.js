@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './WaiterAllOrders.scss'
+import styles from './WaiterAllOrders.scss';
 
 class WaiterAllOrders extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2 className={styles.component}>
-          -jak powyższa
+      <div className={styles.component}>
+        <h2>
+          Waitres All Orders
         </h2>
       </div>
     );

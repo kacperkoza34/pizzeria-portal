@@ -46,6 +46,7 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "dependencies": {
+    "@material-ui/core": "^4.7.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "json-server": "^0.15.1",

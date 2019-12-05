@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './TablesEvents.scss'
+import styles from './TablesEvents.scss';
 
 class TablesEvents extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2 className={styles.component}>
-          - analogicznie do powyższej, dla eventów
+      <div className={styles.component}>
+        <h2>
+          Tables Events
         </h2>
       </div>
     );
