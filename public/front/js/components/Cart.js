@@ -125,7 +125,7 @@ class Cart{
     cartDom.appendChild(generatedDom);
 
 
-    thisCart.products.push(new CartProduct(menuProduct, generatedDom))
+    thisCart.products.push(new CartProduct(menuProduct, generatedDom));
     //console.log('thisCart.products', thisCart.products)
     //console.log('add info  product', menuProduct);
     thisCart.update();
@@ -150,7 +150,7 @@ class Cart{
     for(let key of thisCart.renderTotalsKeys){
 
       for(let elem of thisCart.dom[key]){
-  //      console.log(elem, thisCart[key], thisCart, key);
+        //      console.log(elem, thisCart[key], thisCart, key);
         elem.innerHTML = thisCart[key];
       }
     }

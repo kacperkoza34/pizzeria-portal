@@ -36,14 +36,14 @@ export const select = {
   // CODE ADDED START
 
   datePicker: {
-       wrapper: '.date-picker',
-       input: `input[name="date"]`,
-     },
-     hourPicker: {
-       wrapper: '.hour-picker',
-       input: 'input[type="range"]',
-       output: '.output',
-     },
+    wrapper: '.date-picker',
+    input: `input[name="date"]`,
+  },
+  hourPicker: {
+    wrapper: '.hour-picker',
+    input: 'input[type="range"]',
+    output: '.output',
+  },
 
   cart: {
     productList: '.cart__order-summary',
@@ -107,9 +107,9 @@ export const settings = {
   },
 
   hours: {
-   open: 12,
-   close: 24,
- },
+    open: 12,
+    close: 24,
+  },
   // CODE CHANGED
   // CODE ADDED START
   cart: {
@@ -133,21 +133,21 @@ export const settings = {
   picker: {
     mode: 'range',
     altInput: true,
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d",
+    altFormat: 'F j, Y',
+    dateFormat: 'Y-m-d',
     maxDate: '',
     minDate: '',
     defaultDate: '',
     disable: [
-        function(date) {
-            // return true to disable
-            return (date.getDay() === 1 || date.getDay() === 7);
-        }
+      function(date) {
+        // return true to disable
+        return (date.getDay() === 1 || date.getDay() === 7);
+      },
     ],
     locale: {
-        "firstDayOfWeek": 1 // start week on Monday
-    }
-}
+      'firstDayOfWeek': 1, // start week on Monday
+    },
+  },
   // CODE ADDED END
 };
 

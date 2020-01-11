@@ -56,58 +56,58 @@ class Booking{
       fetch(urls.eventsCurrent),
       fetch(urls.eventsRepeat),
     ])
-        .then(function(allResponses){
+      .then(function(allResponses){
 
-          const bookingsResponse = allResponses[0];
-          const eventsCurrentResponse = allResponses[1];
-          const eventsRepeatResponse = allResponses[2];
-          console.log(eventsRepeatResponse);
+        const bookingsResponse = allResponses[0];
+        const eventsCurrentResponse = allResponses[1];
+        const eventsRepeatResponse = allResponses[2];
+        console.log(eventsRepeatResponse);
 
-          return Promise.all([
-            bookingsResponse.json(),
-            eventsCurrentResponse.json(),
-            eventsRepeatResponse.json(),
-          ]);
-        })
-        .then(function([bookings, eventsCurrent, eventsRepeat]){
-          console.log(bookings);
-          //console.log(eventsCurrent);
-          //console.log(eventsRepeat);
-          thisBooking.praseData(bookings, eventsCurrent, eventsRepeat);
-        });
-    }
+        return Promise.all([
+          bookingsResponse.json(),
+          eventsCurrentResponse.json(),
+          eventsRepeatResponse.json(),
+        ]);
+      })
+      .then(function([bookings, eventsCurrent, eventsRepeat]){
+        console.log(bookings);
+        //console.log(eventsCurrent);
+        //console.log(eventsRepeat);
+        thisBooking.praseData(bookings, eventsCurrent, eventsRepeat);
+      });
+  }
 
   praseData(bookings, eventsCurrent, eventsRepeat){
-      const thisBooking = this;
+    const thisBooking = this;
 
-      thisBooking.booked ={};
-      console.log(bookings);
-      for(let item of bookings){
-        //console.log(item.date, item.hour, item.duration, item.table);
-        thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
-      }
-      for(let item of eventsCurrent){
-        thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
-      }
+    thisBooking.booked ={};
+    console.log(bookings);
+    for(let item of bookings){
+      //console.log(item.date, item.hour, item.duration, item.table);
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+    }
+    for(let item of eventsCurrent){
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+    }
 
-      const minDate = thisBooking.datePicker.minDate;
-      const maxDate = thisBooking.datePicker.maxDate;
+    const minDate = thisBooking.datePicker.minDate;
+    const maxDate = thisBooking.datePicker.maxDate;
 
-      //console.log(eventsRepeat);
-      for(let item of eventsRepeat){
-        if(item.repeat == 'daily'){
-          for(let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate,1)){
-            thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
-          }
+    //console.log(eventsRepeat);
+    for(let item of eventsRepeat){
+      if(item.repeat == 'daily'){
+        for(let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate,1)){
+          thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
         }
       }
-      thisBooking.updateDOM();
+    }
+    thisBooking.updateDOM();
   }
 
   makeBooked(date, hour, duration, table){
     const thisBooking = this;
 
-  //  console.log('test: ',date, hour, duration, table);
+    //  console.log('test: ',date, hour, duration, table);
 
     //console.log(thisBooking.booked);
     if(typeof thisBooking.booked[date] == 'undefined'){
@@ -228,7 +228,7 @@ class Booking{
 
   displayTable(table, allTables){
     const thisBooking = this;
-      for(let i = 0; i<3; i++){
+    for(let i = 0; i<3; i++){
       if(typeof thisBooking.booked[thisBooking.date] == 'undefined'){
         thisBooking.booked[thisBooking.date] = {};
       }
@@ -274,7 +274,7 @@ class Booking{
       starters: [],
       adress: adress,
       phone: phone,
-    }
+    };
 
     const url = settings.db.url + '/' + settings.db.booking;
     //console.log(bookingData);
@@ -297,34 +297,34 @@ class Booking{
 
   }
 
- /*===========================================*/
+  /*===========================================*/
 
 
- checkDuration(duration, correctTable){
-   const thisBooking = this;
-   //console.log(duration);
-   //console.log(thisBooking.booked);
-   //console.log(thisBooking.booked[thisBooking.date][thisBooking.hour]);
-   let endOfOrder = parseFloat(thisBooking.hour)+parseFloat(duration);
-   let maxValueOfWidget;
-   for(let i = parseFloat(thisBooking.hour); i<=endOfOrder; i += 0.5){
-     maxValueOfWidget = i - parseFloat(thisBooking.hour);
-     //console.log('================================================');
-     //console.log('maxValueOfWidget: ',maxValueOfWidget);
-     //console.log('godzina wybrana przez uzutkownika: ', parseFloat(thisBooking.hour));
-     //console.log('godzina dla ktorej sprawdzamy: ', i);
-     //console.log('koniec rezerwacji: ', endOfOrder);
+  checkDuration(duration, correctTable){
+    const thisBooking = this;
+    //console.log(duration);
+    //console.log(thisBooking.booked);
+    //console.log(thisBooking.booked[thisBooking.date][thisBooking.hour]);
+    let endOfOrder = parseFloat(thisBooking.hour)+parseFloat(duration);
+    let maxValueOfWidget;
+    for(let i = parseFloat(thisBooking.hour); i<=endOfOrder; i += 0.5){
+      maxValueOfWidget = i - parseFloat(thisBooking.hour);
+      //console.log('================================================');
+      //console.log('maxValueOfWidget: ',maxValueOfWidget);
+      //console.log('godzina wybrana przez uzutkownika: ', parseFloat(thisBooking.hour));
+      //console.log('godzina dla ktorej sprawdzamy: ', i);
+      //console.log('koniec rezerwacji: ', endOfOrder);
 
-     //console.log(i,thisBooking.booked[thisBooking.date][i], correctTable);
-     if(typeof thisBooking.booked[thisBooking.date][i] == 'undefined'){
-       //thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount, true, maxValueOfWidget);
-       if(i<settings.hours.open || i>=settings.hours.close){
-       window.alert('Open to 00:00 ');
-       //return false;
-       }
-     }
-     else{
-       if((thisBooking.booked[thisBooking.date][i].includes(correctTable))){
+      //console.log(i,thisBooking.booked[thisBooking.date][i], correctTable);
+      if(typeof thisBooking.booked[thisBooking.date][i] == 'undefined'){
+        //thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount, true, maxValueOfWidget);
+        if(i<settings.hours.open || i>=settings.hours.close){
+          window.alert('Open to 00:00 ');
+          //return false;
+        }
+      }
+      else{
+        if((thisBooking.booked[thisBooking.date][i].includes(correctTable))){
         //console.log(i,thisBooking.booked[thisBooking.date][i], correctTable);
         //console.log('maksymalna wartośc widgetu: ',maxValueOfWidget);
         //console.log('Next reservation starts at ' + i);
@@ -332,13 +332,13 @@ class Booking{
         //console.log('rezerwacja sie nie wykona bo jest za długa nastepna o ', i, 'maksymalna wartoc widgetu to: ',maxValueOfWidget );
         //thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount, true, maxValueOfWidget);
         //return false;
-       }
-       //else thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount, true, maxValueOfWidget);
-     }
-   }
-   //console.log('rezerwacja jest ok, maksymalna wartoc widgetu to: ',maxValueOfWidget );
-   //return true;
- }
+        }
+        //else thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount, true, maxValueOfWidget);
+      }
+    }
+    //console.log('rezerwacja jest ok, maksymalna wartoc widgetu to: ',maxValueOfWidget );
+    //return true;
+  }
   initNewWidget(duration, correctTable){
     const thisBooking = this;
     let endOfOrder = parseFloat(thisBooking.hour)+parseFloat(duration);
@@ -414,10 +414,10 @@ class Booking{
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
 
-//    thisBooking.dom.wrapper.addEventListener('updated', function(){
-//      thisBooking.updateDOM();
-//    });
-//    console.log(thisBooking.dom.wrapper);
+    //    thisBooking.dom.wrapper.addEventListener('updated', function(){
+    //      thisBooking.updateDOM();
+    //    });
+    //    console.log(thisBooking.dom.wrapper);
     thisBooking.changeListner();
   }
 

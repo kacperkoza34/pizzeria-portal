@@ -23,7 +23,7 @@ class DatePicker extends BaseWidget {
     flatpickr(thisWidget.dom.input, settings.picker);
     //console.log(!thisWidget.dom.input.value);
     if(!thisWidget.dom.input.value){
-      console.log('test warunku')
+      console.log('test warunku');
       settings.picker.defaultDate = utils.dateToStr(utils.addDays(thisWidget.minDate, 1));
       console.log(settings.picker.minDate);
       flatpickr(thisWidget.dom.input, settings.picker);

@@ -59,7 +59,7 @@ class Product{
 
     for(let input of thisProduct.formInputs){
       input.addEventListener('change', function(){
-      thisProduct.processOrder();
+        thisProduct.processOrder();
       });
     }
 
@@ -144,16 +144,16 @@ class Product{
     thisProduct.name = thisProduct.data.name;
     thisProduct.amount = thisProduct.amountWidget.value;
 
-  //  app.cart.add(thisProduct);
+    //  app.cart.add(thisProduct);
 
-  const event = new CustomEvent('add-to-cart', {
-    bubbles: true,
-    detail: {
-      product: thisProduct,
-    }
-  });
+    const event = new CustomEvent('add-to-cart', {
+      bubbles: true,
+      detail: {
+        product: thisProduct,
+      },
+    });
 
-  thisProduct.element.dispatchEvent(event);
+    thisProduct.element.dispatchEvent(event);
   }
 }
 

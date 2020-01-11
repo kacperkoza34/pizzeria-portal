@@ -14,7 +14,7 @@ class AmountWidget extends BaseWidget{
     //console.log(float);
     thisWidget.getElements(element);
     thisWidget.initActions(float, maxValueOfWidget);
-//    console.log('constructor element: ', thisWidget);
+    //    console.log('constructor element: ', thisWidget);
     //console.log('constructor params: ',  settings.amountWidget.defaultValue )
 
   }
@@ -45,53 +45,53 @@ class AmountWidget extends BaseWidget{
     let count = 1;
     if(float) count = 0.5;
     //console.log('maksa valju of:', maxValueOfWidget);
-      //console.log('maxValueOfWidget:',maxValueOfWidget);
-      //console.log('thisWidget.value:',thisWidget.value);
-      //if(thisWidget.value == true) thisWidget.value = 1;
-      const allTables = document.querySelectorAll(select.booking.tables);
-      //console.log('test float',float);
-      for(let i = 0; i<3; i++){
-        allTables[i].addEventListener('click', function(){
-            thisWidget.setValue(1, true, maxValueOfWidget);
-        });
-      }
+    //console.log('maxValueOfWidget:',maxValueOfWidget);
+    //console.log('thisWidget.value:',thisWidget.value);
+    //if(thisWidget.value == true) thisWidget.value = 1;
+    const allTables = document.querySelectorAll(select.booking.tables);
+    //console.log('test float',float);
+    for(let i = 0; i<3; i++){
+      allTables[i].addEventListener('click', function(){
+        thisWidget.setValue(1, true, maxValueOfWidget);
+      });
+    }
     //  window.onload = function() {
     //    for(let i = 0; i<2; i++){
     //      thisWidget.setValue(1, float, maxValueOfWidget);
     //    }
     //  };
 
-      //thisWidget.setValue(numberByChange, float, maxValueOfWidget);
+    //thisWidget.setValue(numberByChange, float, maxValueOfWidget);
 
 
-      thisWidget.dom.input.addEventListener('change', function(){
-        //thisWidget.setValue(thisWidget.dom.input.value);
-        //console.log(thisWidget.dom.input.value <= 0);
-        if(maxValueOfWidget == 0) thisWidget.setValue(thisWidget.dom.input.value);
-        else{
-           thisWidget.setValue(0,float, maxValueOfWidget);
-        }
-      });
-      thisWidget.dom.linkDecrease.addEventListener('click', function(event){
-        event.preventDefault();
-        //console.log('maxValueOfWidget:', maxValueOfWidget);
-        if(maxValueOfWidget == 0){
-          thisWidget.setValue(thisWidget.value-count, float);
-          //console.log('działa')
-        }
-        else thisWidget.setValue(thisWidget.value-count, float, maxValueOfWidget);
-      });
-      thisWidget.dom.linkIncrease.addEventListener('click', function(event){
-        event.preventDefault();
-        //console.log('maxValueOfWidget:', maxValueOfWidget);
-        if(maxValueOfWidget == 0){
-          thisWidget.setValue(thisWidget.value+count, float);
-          //console.log('działa')
-        }
-        else thisWidget.setValue(thisWidget.value+count, float, maxValueOfWidget);
-      });
+    thisWidget.dom.input.addEventListener('change', function(){
+      //thisWidget.setValue(thisWidget.dom.input.value);
+      //console.log(thisWidget.dom.input.value <= 0);
+      if(maxValueOfWidget == 0) thisWidget.setValue(thisWidget.dom.input.value);
+      else{
+        thisWidget.setValue(0,float, maxValueOfWidget);
+      }
+    });
+    thisWidget.dom.linkDecrease.addEventListener('click', function(event){
+      event.preventDefault();
+      //console.log('maxValueOfWidget:', maxValueOfWidget);
+      if(maxValueOfWidget == 0){
+        thisWidget.setValue(thisWidget.value-count, float);
+        //console.log('działa')
+      }
+      else thisWidget.setValue(thisWidget.value-count, float, maxValueOfWidget);
+    });
+    thisWidget.dom.linkIncrease.addEventListener('click', function(event){
+      event.preventDefault();
+      //console.log('maxValueOfWidget:', maxValueOfWidget);
+      if(maxValueOfWidget == 0){
+        thisWidget.setValue(thisWidget.value+count, float);
+        //console.log('działa')
+      }
+      else thisWidget.setValue(thisWidget.value+count, float, maxValueOfWidget);
+    });
 
-    }
+  }
 
 
 
@@ -112,8 +112,8 @@ class AmountWidget extends BaseWidget{
 
         if(value <= 0.5){
           //console.log('test pierwszy if');
-           value = 0.5;
-         }
+          value = 0.5;
+        }
         else if(value >=maxValue){
           //console.log('test drugi if');
           value = maxValue;

@@ -40,7 +40,7 @@ class CartProduct{
 
     const thisCartProduct = this;
 
-    console.log("Amountwidget dom", thisCartProduct.dom.amountWidget);
+    console.log('Amountwidget dom', thisCartProduct.dom.amountWidget);
     thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget, false, 0);
     console.log(thisCartProduct.amountWidget);
 
@@ -58,7 +58,7 @@ class CartProduct{
       bubbles: true,
       detail: {
         cartProduct: thisCartProduct,
-      }
+      },
     });
     //console.log('test333');
 

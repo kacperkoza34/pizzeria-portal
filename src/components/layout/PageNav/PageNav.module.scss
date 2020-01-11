@@ -2,9 +2,14 @@
 
 .component {
   padding: $base-size 0;
-  margin-left: auto;
+  //margin-left: auto;
+}
+
+.root {
+  width: 80%;
 }
 
 .link {
+  text-decoration-line: none;
   color: inherit;
 }
