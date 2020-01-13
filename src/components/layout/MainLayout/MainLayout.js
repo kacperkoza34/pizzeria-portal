@@ -19,6 +19,7 @@ class MainLayout extends React.Component {
             </Toolbar>
           </Container>
         </AppBar>
+        <Toolbar />
         <Container maxWidth="lg">
           <Toolbar />
           {this.props.children}
