@@ -1,0 +1,50 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  padding: $base-size;
+  font-family: 'Robot';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.asideWrapper {
+  width: 30%;
+  border: 1px solid $main-theme;
+}
+
+.tablesWrapper {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid $main-theme;
+  border-radius: 8px;
+  font-family: monospace;
+}
+
+.grid {
+  display: flex;;
+  justify-content: center;
+}
+
+.table {
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  cursor: pointer;
+  background: $free-table;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  background: $main-theme;
+}
