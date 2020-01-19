@@ -6,46 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-
-
-const menu = [
-  {
-    id: 'home',
-    menuProps: [
-      { name: 'Home', link: '/'},
-    ],
-  },
-  {
-    id: 'tables',
-    menuProps: [
-      { name: 'Tables', link: '/tables'},
-      { name: 'Booked tables', link: '/tables/booking/:id'},
-      { name: 'Book new table', link: '/tables/booking/new'},
-      { name: 'Events', link: '/tables/events/:id'},
-      { name: 'Add event', link: '/tables/events/new'},
-    ],
-  },
-  {
-    id: 'waiter',
-    menuProps: [
-      { name: 'Waiter', link: '/waiter' },
-      { name: 'Add new order', link: '/waiter/order/new' },
-      { name: 'See new orders', link: '/waiter/order/:id' },
-    ],
-  },
-  {
-    id: 'kitchen',
-    menuProps: [
-      { name: 'Kitchen', link: '/kitchen'},
-    ],
-  },
-  {
-    id: 'login',
-    menuProps: [
-      { name: 'Login', link: '/login'},
-    ],
-  },
-];
+import {menu} from '../../../data/menu.js';
 
 const PageNav = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -88,6 +49,7 @@ const PageNav = props => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
               aria-expanded="true"
+              className={styles.subMenu}
             >
               {menuProps.map(({name, link}) => (
                 <NavLink

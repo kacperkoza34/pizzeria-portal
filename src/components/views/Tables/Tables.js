@@ -1,27 +1,20 @@
 import React from 'react';
 import styles from './Tables.module.scss';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 
 const Tables = () => {
-  const [ status, changeStatus ] = React.useState(null);
-
-  const handleSetTable = (value) => {
-    changeStatus(value);
-  };
 
   return (
     <Grid container className={styles.component} spacing={2}>
-      <Grid item xs={12} className={styles.grid}>
-        <Grid container className={styles.tablesWrapper}>
-          {[0, 1, 2, 3, 4, 5].map(value => (
-            <Grid key={value} item>
-              <Paper onClick={(event) => handleSetTable(value)} className={styles.table}>
-                <h4 className={ status === value ? styles.active : '' }>Table {value+1}</h4>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
+      <h1>Tables</h1>
+      <Grid item xs={12}>
+        <div className={styles.floor}>
+          <div className={styles.entry}>entry</div>
+          <div className={[styles.bar, styles.object].join(' ')}>bar</div>
+          <div className={[styles.table, styles.table1, styles.object].join(' ')} >table-1</div>
+          <div className={[styles.table, styles.radius, styles.table2, styles.object].join(' ')} >table-2</div>
+          <div className={[styles.table, styles.table3, styles.object].join(' ')} >table-3</div>
+        </div>
       </Grid>
     </Grid>
   );

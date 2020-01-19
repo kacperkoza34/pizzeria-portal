@@ -9,6 +9,8 @@ const middlewares = jsonServer.defaults({
   static: 'build',
   noCors: true,
 });
+
+//// Możliwe że noCorse nie będzie dziłać przy obecnych ustawirniach!!!!!!!!!!!!!!!!!!
 const port = process.env.PORT || 3131;
 
 server.get(/^\/panel.*/, (req,res) =>{
