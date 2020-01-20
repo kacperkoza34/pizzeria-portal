@@ -53,7 +53,7 @@ class TablesBooking extends React.Component {
 }
 
 TablesBooking.propTypes = {
-  match: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default TablesBooking;

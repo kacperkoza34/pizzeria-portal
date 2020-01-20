@@ -34,6 +34,36 @@ export const fetchFromAPI = () => {
   };
 };
 
+export const postToAPI = (row) => {
+  const { id, order, status } = row;
+  const statuses = [ 'thinking',
+    'ordered',
+    'prepared',
+    'delivered',
+    'paid',
+    'free',
+  ];
+
+  const newStatus =  statuses.indexOf(status) === statuses.length-1 ? 0 : statuses.indexOf(status)+1;
+  let newOrder = order === null || status === 'paid'? Math.round(Math.random() * 1000) : order;
+  if (status === 'paid') newOrder = null;
+
+  return (dispatch, getState) => {
+    const tableData = {
+      status: statuses[newStatus],
+      order: newOrder,
+    };
+    Axios
+      .put(`${api.url}/${api.tables}/${id}`, tableData)
+      .then( res => {
+        dispatch(fetchFromAPI());
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {

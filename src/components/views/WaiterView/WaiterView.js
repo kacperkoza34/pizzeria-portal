@@ -23,6 +23,7 @@ class WaiterView extends React.Component {
         PropTypes.string,
       ]),
     }),
+    postStatus: PropTypes.func,
   }
 
   componentDidMount(){
@@ -30,34 +31,36 @@ class WaiterView extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  renderActions(row){
+    const { postStatus } = this.props;
+    const { status } = row;
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={ () => postStatus(row)}>thinking</Button>
+            <Button onClick={ () =>{ row.status = 'thinking'; return postStatus(row);}}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button onClick={ () => postStatus(row)}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={ () => postStatus(row)}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={ () => postStatus(row)}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={ () => postStatus(row)}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={ () => postStatus(row)}>free</Button>
         );
       default:
         return null;
@@ -66,7 +69,6 @@ class WaiterView extends React.Component {
 
   render() {
     const { loading: { active, error }, tables } = this.props;
-
     if(active || !tables.length){
       return (
         <Paper className={styles.component}>
@@ -109,7 +111,7 @@ class WaiterView extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row)}
                   </TableCell>
                 </TableRow>
               ))}
