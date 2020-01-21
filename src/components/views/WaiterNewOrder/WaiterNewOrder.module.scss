@@ -2,4 +2,18 @@
 
 .component {
   padding: $base-size;
+  font-family: $main-font-family;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+
+  .singleForm {
+    margin: 10px 0 10px 0;
+  }
+
+  .small {
+    width: 150px;
+  }
 }

@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import {menu} from '../../../data/menu.js';
+import pageNavData from '../../../data/pageNavData.js';
 
 const PageNav = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -26,7 +26,7 @@ const PageNav = props => {
   return(
     <div className={styles.component}>
       <nav className={styles.nav} >
-        {menu.map( ({id, menuProps})  =>(
+        {pageNavData.map( ({id, menuProps})  =>(
           <div key={id}>
             <List component="nav" aria-label="Device settings">
               <ListItem

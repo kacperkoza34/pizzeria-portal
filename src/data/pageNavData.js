@@ -1,4 +1,4 @@
-export const menu = [
+const pageNavData = [
   {
     id: 'home',
     menuProps: [
@@ -36,3 +36,5 @@ export const menu = [
     ],
   },
 ];
+
+export default pageNavData;
