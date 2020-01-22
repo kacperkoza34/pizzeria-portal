@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import styles from './WaiterNewOrder.module.scss';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import newOrderData from '../../../data/newOrderData.js';
+import waiterNewOrderData from '../../../data/waiterNewOrderData.js';
 
-const WaiterNewOrder = () => {
 
-  const [ table, setTable] = React.useState(null);
-  const [starter, setStarter] = React.useState(null);
+const WaiterNewOrder = ({fetchProducts}) => {
+
+  const [ table, setTable] = useState(null);
+  const [starter, setStarter] = useState(null);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []); // passing an empty array as second argumenthus replicating `componentDidMount`
+
 
   const handleChange = (event, id) => {
     switch (id) {
@@ -24,6 +30,7 @@ const WaiterNewOrder = () => {
 
     }
   };
+
   console.log('stół: ', table);
   console.log('starter:  ', starter);
 
@@ -31,12 +38,13 @@ const WaiterNewOrder = () => {
     <Paper className={styles.component}>
       <h3>Add new order</h3>
       <div className={styles.inputs}>
-        { newOrderData.map( ({id, placeHolder, title, helperText, settings, options, handler}) =>
-          <div key={id} className={[styles.singleForm, styles[settings.size]].join(' ') }>
+        { waiterNewOrderData.map( ({id, placeHolder, title, helperText, settings, options, handler}) =>
+          <div key={id} className={styles.singleForm}>
             <h5>{title}</h5>
             <TextField
-              id="standard-select-currency"
+              id={id}
               select
+              className={styles[settings.size]}
               label={placeHolder}
               value={table}
               onChange={ event => handleChange(event, id)}

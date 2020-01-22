@@ -8,7 +8,7 @@ import TablesNewBooking from './components/views/TablesNewBooking/TablesNewBooki
 import TablesEvents from './components/views/TablesEvents/TablesEvents';
 import TablesNewEvents from './components/views/TablesNewEvents/TablesNewEvents';
 import WaiterAllOrders from './components/views/WaiterAllOrders/WaiterAllOrders';
-import WaiterNewOrder from './components/views/WaiterNewOrder/WaiterNewOrder';
+import WaiterNewOrder from './components/views/WaiterNewOrder/WaiterNewOrderContainer';
 import WaiterView from './components/views/WaiterView/WaiterViewContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import { StylesProvider } from '@material-ui/core/styles';

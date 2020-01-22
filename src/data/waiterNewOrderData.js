@@ -1,4 +1,4 @@
-const newOrderData = [
+const waiterNewOrderData = [
   {
     id: 'table',
     placeHolder: 'Table',
@@ -48,6 +48,27 @@ const newOrderData = [
       },
     ],
   },
+
+  {
+    id: 'order',
+    placeHolder: 'Order',
+    title: 'Choose menu',
+    helperText: 'Please select dishes',
+    settings: {
+      size: 'large',
+    },
+
+    options: [
+      {
+        value: 'water',
+        label: 'water',
+      },
+      {
+        value: 'bread',
+        label: 'bread',
+      },
+    ],
+  },
 ];
 
-export default newOrderData;
+export default waiterNewOrderData;
