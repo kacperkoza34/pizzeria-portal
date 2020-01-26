@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { setNewStatus } from '../../../utils';
 
 class WaiterView extends React.Component {
   static propTypes = {
@@ -34,36 +35,17 @@ class WaiterView extends React.Component {
   renderActions(row){
     const { postStatus } = this.props;
     const { status } = row;
-    switch (status) {
-      case 'free':
-        return (
-          <>
-            <Button onClick={ () => postStatus(row)}>thinking</Button>
-            <Button onClick={ () =>{ row.status = 'thinking'; return postStatus(row);}}>new order</Button>
-          </>
-        );
-      case 'thinking':
-        return (
-          <Button onClick={ () => postStatus(row)}>new order</Button>
-        );
-      case 'ordered':
-        return (
-          <Button onClick={ () => postStatus(row)}>prepared</Button>
-        );
-      case 'prepared':
-        return (
-          <Button onClick={ () => postStatus(row)}>delivered</Button>
-        );
-      case 'delivered':
-        return (
-          <Button onClick={ () => postStatus(row)}>paid</Button>
-        );
-      case 'paid':
-        return (
-          <Button onClick={ () => postStatus(row)}>free</Button>
-        );
-      default:
-        return null;
+    const nextStatus = setNewStatus(status);
+
+    if(status === 'free') {
+      return (
+        <>
+          <Button onClick={ () => postStatus(row)}>thinking</Button>
+          <Button onClick={ () =>{ row.status = 'thinking'; return postStatus(row);}}>new order</Button>
+        </>
+      );
+    } else {
+      return <Button onClick={() => postStatus(row)}>{nextStatus}</Button>;
     }
   }
 

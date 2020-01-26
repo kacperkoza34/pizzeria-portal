@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import waiterNewOrderData from '../../../data/waiterNewOrderData.js';
+import PropTypes from 'prop-types';
+
 
 
 const WaiterNewOrder = ({fetchProducts}) => {
@@ -13,9 +15,9 @@ const WaiterNewOrder = ({fetchProducts}) => {
 
   useEffect(() => {
     fetchProducts();
-  }, []); // passing an empty array as second argumenthus replicating `componentDidMount`
+  }, []); // passing an empty array as second argument triggers the callback in useEffect only after the initial render thus replicating `componentDidMount` lifecycle behaviour
 
-
+  //
   const handleChange = (event, id) => {
     switch (id) {
       case 'table':
@@ -30,9 +32,6 @@ const WaiterNewOrder = ({fetchProducts}) => {
 
     }
   };
-
-  console.log('stół: ', table);
-  console.log('starter:  ', starter);
 
   return(
     <Paper className={styles.component}>
@@ -65,7 +64,7 @@ const WaiterNewOrder = ({fetchProducts}) => {
 };
 
 WaiterNewOrder.propTypes = {
-
+  fetchProducts: PropTypes.func,
 };
 
 export default WaiterNewOrder;

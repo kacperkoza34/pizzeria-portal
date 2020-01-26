@@ -1,5 +1,7 @@
 import Axios from 'axios';
 import { api } from '../settings';
+import { setNewStatus } from '../utils';
+
 /* selectors */
 export const getAll = ({tables}) => tables.data;
 export const getLoadingState = ({tables}) => tables.loading;
@@ -36,21 +38,13 @@ export const fetchFromAPI = () => {
 
 export const postToAPI = (row) => {
   const { id, order, status } = row;
-  const statuses = [ 'thinking',
-    'ordered',
-    'prepared',
-    'delivered',
-    'paid',
-    'free',
-  ];
-
-  const newStatus =  statuses.indexOf(status) === statuses.length-1 ? 0 : statuses.indexOf(status)+1;
+  const newStatus =  setNewStatus(status);
   let newOrder = order === null || status === 'paid'? Math.round(Math.random() * 1000) : order;
   if (status === 'paid') newOrder = null;
 
   return (dispatch, getState) => {
     const tableData = {
-      status: statuses[newStatus],
+      status: newStatus,
       order: newOrder,
     };
     Axios
@@ -63,6 +57,9 @@ export const postToAPI = (row) => {
       });
   };
 };
+//Dodać nowe casy które będą zmieniały tylko jeden status bez przeładowania całe karty
+// zapisać reducer w iinnym pliku, żeby trymać się DRY - reducer tylko do requestów
+
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
