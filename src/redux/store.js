@@ -2,8 +2,13 @@ import {combineReducers, createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import tablesReducer from './tablesRedux';
 import productsRedux from './productsRedux';
+import log from './middleware/log';
+import getTables from './middleware/getTables';
+import apiRequest from './middleware/apiRequest';
+
+import tablesReducer from './reducers/tablesReducer';
+
 
 // define initial state and shallow-merge initial data
 const initialState = {
@@ -44,7 +49,12 @@ const store = createStore(
   combinedReducers,
   initialState,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(
+      thunk,
+      log,
+      getTables,
+      apiRequest
+    ),
   )
 );
 

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import WaiterView from './WaiterView';
 import { getAll, fetchFromAPI, getLoadingState, postToAPI } from '../../../redux/tablesRedux';
+import { getTables, changeStatus} from '../../../redux/actions/getTables';
 
 const mapStateToProps = (state) => ({
   tables: getAll(state),
@@ -8,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTables: () => dispatch(fetchFromAPI()),
-  postStatus: (row) => dispatch(postToAPI(row)),
+  fetchTables: () => dispatch(getTables()),
+  postStatus: (row) => dispatch(changeStatus(row)),
 
 });
 

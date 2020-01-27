@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { api } from '../settings';
+import { api } from './urls';
 import { setNewStatus } from '../utils';
 
 /* selectors */

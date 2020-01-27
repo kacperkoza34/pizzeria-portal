@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { api } from '../settings';
+import { api } from './urls';
 /* selectors */
 export const getAll = ({products}) => products;
 export const getLoadingState = ({products}) => products;
@@ -27,7 +27,6 @@ export const fetchFromAPI = () => {
       .get(`${api.url}/${api.products}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
-        console.log(res);
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));

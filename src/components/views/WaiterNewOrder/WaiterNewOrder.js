@@ -15,7 +15,7 @@ const WaiterNewOrder = ({fetchProducts}) => {
 
   useEffect(() => {
     fetchProducts();
-  }, []); // passing an empty array as second argument triggers the callback in useEffect only after the initial render thus replicating `componentDidMount` lifecycle behaviour
+  }, [fetchProducts]); // passing an empty array as second argument triggers the callback in useEffect only after the initial render thus replicating `componentDidMount` lifecycle behaviour
 
   //
   const handleChange = (event, id) => {
