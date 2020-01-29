@@ -1,4 +1,4 @@
-import { API_REQUEST } from '../action-names';
+import { API_REQUEST } from '../actions/apiRequest';
 import Axios from 'axios';
 
 const apiRequest = ({dispatch, getState}) => next => action => {
@@ -14,8 +14,8 @@ const apiRequest = ({dispatch, getState}) => next => action => {
       .then( ({data}) =>
         dispatch({ type: onSuccess, payload: data}),
       )
-      .catch( ({error}) =>
-        dispatch({ type: onError, payload: error}),
+      .catch( (error) =>
+        dispatch({ type: onError, payload: error.message}),
       );
   }
 };

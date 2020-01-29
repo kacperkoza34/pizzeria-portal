@@ -2,7 +2,8 @@
 
 .component {
   padding: $base-size 0;
-  //margin-left: auto;
+  text-decoration-line: none;
+  color: inherit;
 }
 
 .root {
@@ -14,11 +15,6 @@
   cursor: pointer;
 }
 
-.link {
-  text-decoration-line: none;
-  color: inherit;
-}
-
 .subMenu {
-  margin-top: 30px;
+  margin-top: 50px;
 }

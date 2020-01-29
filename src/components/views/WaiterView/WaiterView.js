@@ -51,7 +51,7 @@ class WaiterView extends React.Component {
 
   render() {
     const { loading: { active, error }, tables } = this.props;
-    if(active || !tables.length){
+    if( (active || !tables.length) && !error){
       return (
         <Paper className={styles.component}>
           <p>Loading...</p>

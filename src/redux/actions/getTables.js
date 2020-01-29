@@ -6,6 +6,8 @@ export const FETCH_TABLES_ERROR   = '[tables] Fetch Error';
 export const UPDATE_ALL_TABLES = '[tables] Update all tables';
 export const UPDATE_ONE_TABLE   = '[tables] Update one table';
 export const TABLES_LOADING = '[tables] Loading';
+export const STOP_LOADING = '[tables] Stop loading';
+export const DISPLAY_ERROR = '[tables] Display error';
 
 
 export const getTables = () => ({
@@ -35,10 +37,19 @@ export const updateOneTable = (data) => ({
   payload: data,
 });
 
-export const loadingTables = () => ({
+export const setLoading = () => ({
   type: TABLES_LOADING,
-  payload: true,
 });
+
+export const stopLoading = () => ({
+  type: STOP_LOADING,
+});
+
+export const displayError = (error) => ({
+  type: DISPLAY_ERROR,
+  payload: error,
+});
+
 
 
 

@@ -1,4 +1,4 @@
-import { API_REQUEST } from '../action-names';
+export const API_REQUEST = 'Api reguest';
 
 export const apiRequest = (method, url, body, onSuccess, onError) => ({
   type: API_REQUEST,

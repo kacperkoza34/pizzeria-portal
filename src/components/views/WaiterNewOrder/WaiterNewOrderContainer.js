@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import WaiterNewOrder from './WaiterNewOrder';
-import { getAll, fetchFromAPI, getLoadingState } from '../../../redux/productsRedux';
+import { getAll, getLoadingState } from '../../../redux/reducers/productsReducer';
+import { getProducts } from '../../../redux/actions/getProducts';
 
 const mapStateToProps = (state) => ({
   products: getAll(state),
@@ -8,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProducts: () => dispatch(fetchFromAPI()),
+  fetchProducts: () => dispatch(getProducts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WaiterNewOrder);

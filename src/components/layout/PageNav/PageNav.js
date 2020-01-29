@@ -1,5 +1,4 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import styles from './PageNav.module.scss';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -7,6 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import pageNavData from '../../../data/pageNavData.js';
+import PageNavLink from '../../features/PageNavLink.js';
 
 const PageNav = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,10 +34,12 @@ const PageNav = props => {
               >
                 <ListItemText primary={
                   menuProps.length === 1 ?
-                    <NavLink
-                      className={styles.link}
-                      to={process.env.PUBLIC_URL+menuProps[0].link}
-                      activeClassName='active'>{menuProps[0].name}</NavLink>
+                    <PageNavLink
+                      index={0}
+                      menuProps={menuProps}
+                      activeClassName='active'>
+                      {menuProps[0].name}
+                    </PageNavLink>
                     :menuProps[0].name
                 } />
               </ListItem>
@@ -51,19 +53,19 @@ const PageNav = props => {
               aria-expanded="true"
               className={styles.subMenu}
             >
-              {menuProps.map(({name, link}) => (
-                <NavLink
+              {menuProps.map(({name, link}, index) => (
+                <PageNavLink
                   key={name}
-                  className={styles.link}
-                  to={process.env.PUBLIC_URL+link}
-                  activeClassName='active'>
+                  index={index}
+                  menuProps={menuProps}
+                  activeClassName='active' >
                   <MenuItem
                     key={name}
                     onClick={event => handleMenuItemClick(event)}
                   >
                     {name}
                   </MenuItem>
-                </NavLink>
+                </PageNavLink>
               ))}
             </Menu>}
           </div>

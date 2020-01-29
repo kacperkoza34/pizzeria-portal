@@ -4,6 +4,8 @@ const basicURL = '//' + hostName + (hostName==='localhost' ? ':3131/api': '');
 
 export const api = {
   getTablesURL: `${basicURL}/tables`,
+  getProductsURL: `${basicURL}/product`,
+
   // tables: 'tables',
   // products: 'product',
   // order: 'order',
