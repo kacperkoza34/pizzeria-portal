@@ -1,10 +1,10 @@
 import { GET_PRODUCTS,
-         FETCH_PRODUCTS_SUCCESS,
-         FETCH_PRODUCTS_ERROR,
-         updateAllProducts
- } from '../actions/getProducts';
- import { apiRequest } from '../actions/apiRequest';
- import { api } from '../urls';
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_ERROR,
+  updateAllProducts,
+} from '../actions/getProducts';
+import { apiRequest } from '../actions/apiRequest';
+import { api } from '../urls';
 
 
 const getProducts = ({dispatch, getState}) => next => action => {

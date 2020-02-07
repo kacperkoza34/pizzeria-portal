@@ -11,11 +11,11 @@ import Button from '@material-ui/core/Button';
 class TablesEvents extends React.Component {
   state = {
     data:  [
-        {id: 22, eventId: 33, time: '12:30'},
-        {id: 33, eventId: 66, time: '12:50'},
-        {id: 11, eventId: 88, time: '12:00'},
+      {id: 22, eventId: 33, time: '12:30'},
+      {id: 33, eventId: 66, time: '12:50'},
+      {id: 11, eventId: 88, time: '12:00'},
 
-      ]
+    ],
   }
 
   render(){
@@ -31,7 +31,7 @@ class TablesEvents extends React.Component {
           </TableHead>
           <TableBody>
 
-          {this.state.data.map( ({id, eventId, time}) => (
+            {this.state.data.map( ({id, eventId, time}) => (
               <TableRow>
                 <TableCell>
                   {id}
@@ -42,8 +42,8 @@ class TablesEvents extends React.Component {
                 <TableCell>
                   {time}
                 </TableCell>
-            </TableRow>
-          ))}
+              </TableRow>
+            ))}
 
           </TableBody>
         </Table>

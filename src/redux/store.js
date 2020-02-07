@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import log from './middleware/log';
 import getTables from './middleware/getTables';
 import getProducts from './middleware/getProducts';
+import getStatus from './middleware/getStatus';
 import apiRequest from './middleware/apiRequest';
 
 
@@ -58,7 +59,8 @@ const store = createStore(
       log,
       getTables,
       apiRequest,
-      getProducts
+      getProducts,
+      getStatus
     ),
   )
 );

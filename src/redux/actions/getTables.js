@@ -1,8 +1,6 @@
 export const GET_TABLES = '[tables] GET';
 export const PUT_TABLES = '[tables] PUT new status';
 
-export const FETCH_TABLES_SUCCESS = '[tables] Fetch success';
-export const FETCH_TABLES_ERROR   = '[tables] Fetch Error';
 export const UPDATE_ALL_TABLES = '[tables] Update all tables';
 export const UPDATE_ONE_TABLE   = '[tables] Update one table';
 export const TABLES_LOADING = '[tables] Loading';
@@ -17,14 +15,6 @@ export const getTables = () => ({
 export const changeStatus = (row) => ({
   type: PUT_TABLES,
   payload: row,
-});
-
-export const fetchTablesSuccess = () => ({
-  type: FETCH_TABLES_SUCCESS,
-});
-
-export const fetchTablesError = () => ({
-  type: FETCH_TABLES_ERROR,
 });
 
 export const updateAllTables = (data) => ({

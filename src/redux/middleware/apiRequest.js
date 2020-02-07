@@ -14,8 +14,8 @@ const apiRequest = ({dispatch, getState}) => next => action => {
       .then( ({data}) =>
         dispatch({ type: onSuccess, payload: data}),
       )
-      .catch( (error) =>
-        dispatch({ type: onError, payload: error.message}),
+      .catch( ({message}) =>
+        dispatch({ type: onError, payload: message}),
       );
   }
 };

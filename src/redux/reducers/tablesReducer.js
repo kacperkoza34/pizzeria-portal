@@ -1,9 +1,9 @@
 import {UPDATE_ALL_TABLES,
-        UPDATE_ONE_TABLE,
-        TABLES_LOADING,
-        STOP_LOADING,
-        DISPLAY_ERROR
-      } from '../actions/getTables';
+  UPDATE_ONE_TABLE,
+  TABLES_LOADING,
+  STOP_LOADING,
+  DISPLAY_ERROR,
+} from '../actions/getTables';
 
 export const getAll = ({tables}) => tables.data;
 export const getLoadingState = ({tables}) => tables.loading;
