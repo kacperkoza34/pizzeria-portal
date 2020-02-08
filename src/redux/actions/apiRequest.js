@@ -1,7 +1,6 @@
 export const API_REQUEST = 'Api reguest';
 
-export const apiRequest = (method, url, body, onSuccess, onError) => ({
+export const apiRequest = (method, url, name, body) => ({
   type: API_REQUEST,
-  payload: body,
-  meta: { method, url, onSuccess, onError, body },
+  meta: { method, url, name, body },
 });

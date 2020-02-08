@@ -10,6 +10,7 @@ import TablesNewEvents from './components/views/TablesNewEvents/TablesNewEvents'
 import WaiterAllOrders from './components/views/WaiterAllOrders/WaiterAllOrders';
 import WaiterNewOrder from './components/views/WaiterNewOrder/WaiterNewOrderContainer';
 import WaiterView from './components/views/WaiterView/WaiterViewContainer';
+import Home from './components/views/Home/Home';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import { StylesProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -32,6 +33,7 @@ function App() {
           <BrowserRouter basename={'/panel'}>
             <MainLayout>
               <Switch>
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
                 <Route exact path={process.env.PUBLIC_URL + '/login'} component={Login} />
                 <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables} />
                 <Route exact path={process.env.PUBLIC_URL + '/tables/booking/:id'} component={TablesBooking} />

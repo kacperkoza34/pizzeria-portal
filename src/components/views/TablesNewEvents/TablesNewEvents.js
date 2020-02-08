@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TablesNewEvents.scss';
+import styles from './TablesNewEvents.module.scss';
 
 class TablesNewEvents extends React.Component {
 

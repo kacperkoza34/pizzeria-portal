@@ -1,7 +1,6 @@
 import {UPDATE_ALL_PRODUCTS} from '../actions/getProducts';
 
 export const getAll = ({products}) => products;
-export const getLoadingState = ({products}) => products;
 
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {

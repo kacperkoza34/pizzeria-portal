@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import WaiterView from './WaiterView';
-import { getAll, getLoadingState } from '../../../redux/reducers/tablesReducer';
+import { getAll } from '../../../redux/reducers/tablesReducer';
+import { getTablesState } from '../../../redux/reducers/statusReducer';
 import { getTables, changeStatus} from '../../../redux/actions/getTables';
 
 const mapStateToProps = (state) => ({
   tables: getAll(state),
-  loading: getLoadingState(state),
+  loading: getTablesState(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

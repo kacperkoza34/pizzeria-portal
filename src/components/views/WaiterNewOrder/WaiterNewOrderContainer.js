@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import WaiterNewOrder from './WaiterNewOrder';
-import { getAll, getLoadingState } from '../../../redux/reducers/productsReducer';
+import { getAll } from '../../../redux/reducers/productsReducer';
+import { getProductsState } from '../../../redux/reducers/statusReducer';
 import { getProducts } from '../../../redux/actions/getProducts';
 
 const mapStateToProps = (state) => ({
   products: getAll(state),
-  loading: getLoadingState(state),
+  loading: getProductsState(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

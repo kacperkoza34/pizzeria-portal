@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './WaiterAllOrders.scss';
+import styles from './WaiterAllOrders.module.scss';
 
 class WaiterAllOrders extends React.Component {
 

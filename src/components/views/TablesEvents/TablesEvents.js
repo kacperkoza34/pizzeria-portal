@@ -1,12 +1,11 @@
 import React from 'react';
-import styles from './TablesEvents.scss';
+import styles from './TablesEvents.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 
 class TablesEvents extends React.Component {
   state = {
@@ -31,8 +30,8 @@ class TablesEvents extends React.Component {
           </TableHead>
           <TableBody>
 
-            {this.state.data.map( ({id, eventId, time}) => (
-              <TableRow>
+            {this.state.data.map( ({id, eventId, time}, index) => (
+              <TableRow key={index}>
                 <TableCell>
                   {id}
                 </TableCell>

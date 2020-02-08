@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TablesNewBooking.scss';
+import styles from './TablesNewBooking.module.scss';
 
 class TablesNewBooking extends React.Component {
 

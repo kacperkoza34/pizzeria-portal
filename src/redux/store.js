@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // use middllware
-import log from './middleware/log';
+//import log from './middleware/log';
 import getTables from './middleware/getTables';
 import getProducts from './middleware/getProducts';
 import getStatus from './middleware/getStatus';
@@ -13,23 +13,32 @@ import apiRequest from './middleware/apiRequest';
 // reducers
 import tablesReducer from './reducers/tablesReducer';
 import productsReducer from './reducers/productsReducer';
+import statusReducer from './reducers/statusReducer';
 
 
 // define initial state and shallow-merge initial data
 const initialState = {
   tables: {
     data: {},
-    loading: {
-      active: false,
-      error: false,
-    },
   },
 
   products: {
     data: {},
-    loading: {
-      active: false,
-      error: false,
+  },
+
+  status: {
+    tables: {
+      loading: {
+        active: false,
+        error: false,
+      },
+    },
+
+    products: {
+      loading: {
+        active: false,
+        error: false,
+      },
     },
   },
 };
@@ -38,6 +47,7 @@ const initialState = {
 const reducers = {
   tables: tablesReducer,
   products: productsReducer,
+  status: statusReducer,
 };
 
 // add blank reducers for initial state properties without reducers
@@ -56,7 +66,7 @@ const store = createStore(
   composeWithDevTools(
     applyMiddleware(
       thunk,
-      log,
+      //log,
       getTables,
       apiRequest,
       getProducts,

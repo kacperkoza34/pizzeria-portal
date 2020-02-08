@@ -2,16 +2,11 @@
 
 .component {
   padding: $base-size;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: $main-font-family;
 }
 
 .calendar {
   width: 40%;
-  display: flex;
-  justify-content: center;
   border: 1px solid $main-theme;
   border-radius: 8px;
 }

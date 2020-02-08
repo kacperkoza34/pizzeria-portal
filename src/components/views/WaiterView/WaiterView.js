@@ -92,7 +92,7 @@ class WaiterView extends React.Component {
                       </Button>
                     )}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className={styles.staticWidth}>
                     {this.renderActions(row)}
                   </TableCell>
                 </TableRow>

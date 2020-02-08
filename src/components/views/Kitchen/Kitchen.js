@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Kitchen.scss';
+import styles from './Kitchen.module.scss';
 import { Scheduler, Appointments, WeekView } from '@devexpress/dx-react-scheduler-material-ui';
 import Paper from '@material-ui/core/Paper';
 import { ViewState } from '@devexpress/dx-react-scheduler';
